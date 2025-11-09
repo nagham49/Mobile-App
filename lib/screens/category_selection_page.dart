@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../widgets/base_layout.dart';
 import '../constants/colors.dart';
 import 'store_selection_page.dart';
-import 'transition_screen.dart';
 
 class CategorySelectionPage extends StatefulWidget {
   const CategorySelectionPage({super.key});
@@ -32,9 +31,8 @@ class _CategorySelectionPageState extends State<CategorySelectionPage> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => TransitionScreen(
-          nextPage: StoreSelectionPage(selectedCategory: _selectedCategory!),
-        ),
+        builder: (context) =>
+            StoreSelectionPage(selectedCategory: _selectedCategory!),
       ),
     );
   }
@@ -42,6 +40,7 @@ class _CategorySelectionPageState extends State<CategorySelectionPage> {
   @override
   Widget build(BuildContext context) {
     return BaseLayout(
+      animateContent: true,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

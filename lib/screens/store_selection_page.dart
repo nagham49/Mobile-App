@@ -41,6 +41,7 @@ class _StoreSelectionPageState extends State<StoreSelectionPage> {
   @override
   Widget build(BuildContext context) {
     return BaseLayout(
+      animateContent: true,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

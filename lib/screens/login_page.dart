@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../constants/colors.dart';
 import '../widgets/base_layout.dart';
 import 'category_selection_page.dart';
-import 'transition_screen.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -32,10 +31,7 @@ class _LoginPageState extends State<LoginPage> {
     if (_formKey.currentState!.validate()) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(
-          builder: (context) =>
-              const TransitionScreen(nextPage: CategorySelectionPage()),
-        ),
+        MaterialPageRoute(builder: (context) => const CategorySelectionPage()),
       );
     } else {
       // Force validation to show errors
@@ -46,6 +42,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return BaseLayout(
+      animateContent: true,
       child: Form(
         key: _formKey,
         child: Column(
