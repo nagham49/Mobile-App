@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/base_layout.dart';
 import '../constants/colors.dart';
+import 'dashboard_page.dart';
 
 class StoreSelectionPage extends StatefulWidget {
   final String selectedCategory;
@@ -29,10 +30,13 @@ class _StoreSelectionPageState extends State<StoreSelectionPage> {
       ).showSnackBar(const SnackBar(content: Text('Please select a store')));
       return;
     }
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(
-          'Launching with Category: ${widget.selectedCategory}, Store: $_selectedStore',
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => DashboardPage(
+          selectedCategory: widget.selectedCategory,
+          selectedStore: _selectedStore!,
+          storeOptions: List<String>.from(_stores),
         ),
       ),
     );
